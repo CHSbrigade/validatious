@@ -1,0 +1,16 @@
+{
+  "name": "@chsbrigade/schema-fu",
+  "version": "1.0.0",
+  "description": "\"Utility to validate plain javascript objects based on declared schemas.\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "yarn run test"
+  },
+  "keywords": [
+    "schema",
+    "json",
+    "validation"
+  ],
+  "author": "chsbrigade",
+  "license": "MIT"
+}
