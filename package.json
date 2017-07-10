@@ -1,10 +1,10 @@
 {
   "name": "@chsbrigade/schema-fu",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "\"Utility to validate plain javascript objects based on declared schemas.\"",
   "main": "index.js",
   "scripts": {
-    "test": "yarn run test"
+    "test": "echo 'no tests defined'"
   },
   "keywords": [
     "schema",
