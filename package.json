@@ -4,7 +4,16 @@
   "description": "\"Utility to validate plain javascript objects based on declared schemas.\"",
   "main": "index.js",
   "scripts": {
-    "test": "echo 'no tests defined'"
+    "precommit": "lint-staged",
+    "test": "jest --watch"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --no-semi --single-quote --write",
+      "eslint --fix",
+      "git add",
+      "jest --bail --findRelatedTests"
+    ]
   },
   "keywords": [
     "schema",
@@ -12,5 +21,18 @@
     "validation"
   ],
   "author": "chsbrigade",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^4.2.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^20.0.3",
+    "eslint-plugin-node": "^5.1.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "husky": "^0.14.3",
+    "jest": "^20.0.4",
+    "lint-staged": "^4.0.1",
+    "prettier": "^1.5.2"
+  }
 }
