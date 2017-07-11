@@ -1,5 +1,5 @@
 {
-  "name": "@chsbrigade/schema-fu",
+  "name": "@chsbrigade/validatious",
   "version": "0.1.0",
   "description": "\"Utility to validate plain javascript objects based on declared schemas.\"",
   "main": "index.js",
