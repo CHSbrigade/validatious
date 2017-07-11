@@ -1,5 +1,5 @@
-import { is, isEmpty } from 'ramda'
-import { defineRule } from './index'
+const { is, isEmpty, merge } = require('ramda')
+const { defineRule, runRule } = require('./index')
 
 describe('defineRule', () => {
   describe('argument checks', () => {
@@ -61,6 +61,38 @@ describe('defineRule', () => {
 
       test('it defaults to an empty array', () => {
         expect(isEmpty(result.prereqs)).toBe(true)
+      })
+    })
+  })
+})
+
+describe('runRule', () => {
+  describe('argument validadtions', () => {
+    test('it throws if rule is invalid', () => {})
+  })
+  describe('return', () => {
+    const validData = { a: 'a' }
+    const validRule = {
+      name: 'testRule',
+      evaluator: () => false,
+      errorMsg: () => 'Simple error message.',
+    }
+    describe('evaluator passes', () => {
+      const passingRule = merge(validRule, { evaluator: () => true })
+      test('it returns null', () => {
+        expect(runRule(passingRule, validData)).toBe(null)
+      })
+    })
+    describe('rule fails', () => {
+      const result = runRule(validRule, validData)
+      test('it should define key', () => {
+        expect(result.key).toEqual(validData.key)
+      })
+      test('it should define ruleName', () => {
+        expect(result.ruleName).toEqual(validRule.name)
+      })
+      test('it should define errorMsg', () => {
+        expect(result.errorMsg).toEqual(validRule.errorMsg())
       })
     })
   })
