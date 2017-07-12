@@ -1,17 +1,32 @@
 const { merge } = require('ramda')
 const runRule = require('./runRule')
 
+const validData = { a: 'a' }
+
+const validRule = {
+  name: 'testRule',
+  evaluator: () => false,
+  errorMsg: () => 'Simple error message.',
+  prereqs: [],
+}
+
 describe('runRule', () => {
   describe('argument validadtions', () => {
-    test('it throws if rule is invalid', () => {})
+    test('it throws if rule is invalid', () => {
+      const invalidRule = {}
+      const runWithMock = () => runRule(invalidRule, validData)
+
+      expect(runWithMock).toThrow(/Invalid rule/)
+    })
+
+    test('it throws if data is invalid', () => {
+      const invalidData = {}
+      const runWithMock = () => runRule(validRule, invalidData)
+
+      expect(runWithMock).toThrow(/Invalid data/)
+    })
   })
   describe('return', () => {
-    const validData = { a: 'a' }
-    const validRule = {
-      name: 'testRule',
-      evaluator: () => false,
-      errorMsg: () => 'Simple error message.',
-    }
     describe('evaluator passes', () => {
       const passingRule = merge(validRule, { evaluator: () => true })
       test('it returns null', () => {

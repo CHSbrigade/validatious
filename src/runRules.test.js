@@ -4,6 +4,7 @@ const generateRule = (ruleName, evalResult = true) => ({
   name: ruleName,
   evaluator: () => evalResult,
   errorMsg: () => 'Simple error msg.',
+  prereqs: [],
 })
 
 test('it throws if rules not array', () => {
