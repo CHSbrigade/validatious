@@ -1,3 +1,4 @@
+const { head, keys, values } = require('ramda')
 const { dataIsValid, ruleIsValid } = require('./utils')
 
 module.exports = runRule
@@ -19,13 +20,16 @@ function runRule (rule, data) {
     throw new Error(`Invalid data: ${data}`)
   }
 
-  if (rule.evaluator(data)) {
+  const key = head(keys(data))
+  const value = head(values(data))
+
+  if (rule.evaluator(value)) {
     return null
   }
 
   return {
-    key: data.key,
+    key,
     ruleName: rule.name,
-    errorMsg: rule.errorMsg(data),
+    errorMsg: rule.errorMsg(value),
   }
 }

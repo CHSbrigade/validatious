@@ -36,7 +36,7 @@ describe('runRule', () => {
     describe('rule fails', () => {
       const result = runRule(validRule, validData)
       test('it should define key', () => {
-        expect(result.key).toEqual(validData.key)
+        expect(result.key).toEqual('a')
       })
       test('it should define ruleName', () => {
         expect(result.ruleName).toEqual(validRule.name)
