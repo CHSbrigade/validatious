@@ -1,4 +1,5 @@
 const { isNil, length } = require('ramda')
+const { type } = require('..')
 
 /**
  * @description This rule fails if the length of the provided string is greater
@@ -9,5 +10,5 @@ module.exports = len => ({
   evaluator: x => isNil(x) || length(x) <= len,
   errorMsg: x =>
     `Expected '${x}' to be no greater than ${len} characters in length`,
-  prereqs: [],
+  prereqs: [type(String)],
 })
