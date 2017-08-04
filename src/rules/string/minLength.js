@@ -5,7 +5,7 @@ const { isNil, length } = require('ramda')
  * than the min specified. It will pass if value is undefined.
  */
 module.exports = len => ({
-  name: 'minLength',
+  name: 'string/minLength',
   evaluator: x => isNil(x) || length(x) >= len,
   errorMsg: x => `Expected '${x}' to be at least ${len} characters in length`,
   prereqs: [],

@@ -31,7 +31,7 @@ test('it fails if length is greater than max', () => {
 
   expect(result).toBeTruthy()
   expect(result.key).toEqual('data')
-  expect(result.ruleName).toEqual('maxLength')
+  expect(result.ruleName).toEqual('string/maxLength')
   expect(result.errorMsg).toEqual(
     "Expected '1234567' to be no greater than 6 characters in length"
   )

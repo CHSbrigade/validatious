@@ -5,7 +5,7 @@ const { isNil, length } = require('ramda')
  * than the max specified. It will pass if value is undefined.
  */
 module.exports = len => ({
-  name: 'maxLength',
+  name: 'string/maxLength',
   evaluator: x => isNil(x) || length(x) <= len,
   errorMsg: x =>
     `Expected '${x}' to be no greater than ${len} characters in length`,

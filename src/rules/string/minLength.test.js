@@ -28,7 +28,7 @@ test('it fails if length is less than min', () => {
 
   expect(result).toBeTruthy()
   expect(result.key).toEqual('data')
-  expect(result.ruleName).toEqual('minLength')
+  expect(result.ruleName).toEqual('string/minLength')
   expect(result.errorMsg).toEqual(
     "Expected '123' to be at least 4 characters in length"
   )
